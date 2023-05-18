@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Image } from 'react-native';
 import { useState, useMemo } from 'react'
 import { multiply } from 'common';
 
@@ -21,6 +21,7 @@ export default Feature2 = () => {
         placeholder="First number"
         keyboardType="numeric"
       />
+      <Image style={{ height: 50, width: 50, alignSelf:'center' }} source={require('../res/multiply.jpeg')} />
       <TextInput
         style={styles.input}
         onChangeText={(val) => setNumber2(val)}
