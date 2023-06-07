@@ -1,12 +1,25 @@
 import { View, Text, TextInput, StyleSheet, Image } from 'react-native';
-import { useState, useMemo } from 'react'
-import { multiply } from 'common';
+import { useState, useMemo, useEffect } from 'react';
+import common from 'common';
 
 
 export default Feature2 = () => {
   const [number1, setNumber1] = useState('0');
   const [number2, setNumber2] = useState('0');
-  const result = useMemo(() => multiply(parseInt(number1), parseInt(number2)).toString());
+  const commonModule = common(); 
+
+  const result = useMemo(() => commonModule.multiply(number1, number2));
+
+  useEffect(() => {
+  console.log(`6 / 2 = ${commonModule.divide(6, 2)}`);
+  console.log(`6 + 2 = ${commonModule.add(6, 2)}`);
+  console.log(`num = ${commonModule.num}`);
+  console.log(`text = ${commonModule.text}`);
+  console.log("the following two values should not be accessible:");
+  console.log(`num = ${commonModule.num2}`);
+  console.log(`text = ${commonModule.text2}`);
+  }, []);
+
 
   return (
 <View>
